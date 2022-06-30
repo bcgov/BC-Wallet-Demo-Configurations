@@ -1,8 +1,7 @@
 # Uses the 'testConnection' script from https://github.com/BCDevOps/openshift-developer-tools
 # Example:
-# echo -e "bc-wallet-demo-web\n bc-wallet-demo-server\n"  | xargs -I {} testConnection -n a99fd4-dev -f TestConnections.txt -p {}
+# echo -e "bc-wallet-demo-web\n bc-wallet-demo-server\n bc-wallet-demo-proxy\n"  | xargs -I {} testConnection -n a99fd4-dev -f TestConnections.txt -p {}
 
 bc-wallet-demo-web:3000
 bc-wallet-demo-server:5000
 bc-wallet-demo-server:5001
-bc-wallet-demo-server:5002

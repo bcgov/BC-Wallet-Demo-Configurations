@@ -158,11 +158,6 @@ parameters:
     description: The name assigned to all of the deployments in this project.
     required: true
     value: bc-wallet-demo
-  - name: NAMESPACE_NAME
-    displayName: NameSpace name
-    description: name of the project namespace
-    required: true
-    value: a99fd4
   - name: APP_NAME
     displayName: App Name
     description: Used to group components together in the OpenShift console.
