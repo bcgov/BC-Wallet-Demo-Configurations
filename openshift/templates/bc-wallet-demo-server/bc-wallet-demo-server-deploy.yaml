@@ -118,6 +118,12 @@ objects:
                     secretKeyRef:
                       name: ${NAME}${SUFFIX}
                       key: tractionDid
+                - name: STUDENT_VERSION
+                  value: ${STUDENT_VERSION}
+                - name: LAWYER_VERSION
+                  value: ${LAWYER_VERSION}
+                - name: PERSON_VERSION
+                  value: ${PERSON_VERSION}
               image: " "
               ports:
                 - containerPort: ${{SERVER_PORT}}
@@ -236,6 +242,21 @@ parameters:
     description: The URL for the site
     required: true
     value: ""
+  - name: STUDENT_VERSION
+    displayName: Student Card Version
+    description: Schema version for student card
+    required: true
+    value: "1.0"
+  - name: LAWYER_VERSION
+    displayName: Member Card Version
+    description: Schema version for lsbc member card
+    required: true
+    value: "1.0"
+  - name: PERSON_VERSION
+    displayName: Person Credential Version
+    description: Schema version for person credential
+    required: true
+    value: "1.0"
   - name: CPU_REQUEST
     displayName: Resources CPU Request
     description: The resources CPU request (in cores) for this build.
