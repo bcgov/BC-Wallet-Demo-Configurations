@@ -77,7 +77,7 @@ parameters:
     displayName: Source Image
     description: The fully-qualified name of the source image for this component. 
     required: true
-    value: artifacts.developer.gov.bc.ca/docker-remote/node:fermium
+    value: artifacts.developer.gov.bc.ca/docker-remote/node:18-alpine
   - name: OUTPUT_IMAGE_TAG
     displayName: Output Image Tag
     description: The tag given to the built image.

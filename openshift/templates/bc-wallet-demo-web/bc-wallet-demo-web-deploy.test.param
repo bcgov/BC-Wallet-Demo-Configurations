@@ -20,6 +20,7 @@
 # CADDY_CONFIG_MOUNT_PATH=/etc/caddy/
 APPLICATION_DOMAIN=bc-wallet-demo-test.apps.silver.devops.gov.bc.ca
 BACKEND_URL=https://bc-wallet-demo-test.apps.silver.devops.gov.bc.ca
+# BASE_ROUTE=/digital-trust/showcase
 # ROUTE_TIMEOUT=120s
 TAG_NAME=test
 # MIN_REPLICAS=3

@@ -13,16 +13,18 @@ fi
 if createOperation; then
   # Ask the user to supply the sensitive parameters ...
   readParameter "TENANT_ID - Please provide the traction tennant ID" TENANT_ID "" "false"
-  readParameter "WALLET_SECRET - Please provide the traction wallet secret" WALLET_SECRET "" "false"
+  readParameter "API_KEY - Please provide the traction API key" API_KEY "" "false"
   readParameter "TRACTION_URL - Please provide the traction url" TRACTION_URL "" "false"
   readParameter "TRACTION_DID - Please provide the traction tenant did" TRACTION_DID "" "false"
+  readParameter "WEBHOOK_SECRET - Please provide the traction webhook secret" WEBHOOK_SECRET "" "false"
 else
   # Secrets are removed from the configurations during update operations ...
   printStatusMsg "Update operation detected ...\nSkipping the prompts for WALLET_SEED secret... \n"
   writeParameter "TENANT_ID" "prompt_skipped" "false"
-  writeParameter "WALLET_SECRET" "prompt_skipped" "false"
+  writeParameter "API_KEY" "prompt_skipped" "false"
   writeParameter "TRACTION_URL" "prompt_skipped" "false"
   writeParameter "TRACTION_DID" "prompt_skipped" "false"
+  writeParameter "WEBHOOK_SECRET" "prompt_skipped" "false"
 fi
 
 SPECIALDEPLOYPARMS="--param-file=${_overrideParamFile}"
