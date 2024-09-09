@@ -119,6 +119,8 @@ objects:
                   value: ${WEB_HOST_TLS}
                 - name: REACT_APP_HOST_BACKEND
                   value: ${BACKEND_URL}
+                - name: REACT_APP_BASE_ROUTE
+                  value: ${BASE_ROUTE}
                 - name: API_HOST
                   value: ${API_HOST}${SUFFIX}
                 - name: API_PORT
@@ -316,6 +318,11 @@ parameters:
     description: The url that the frontend should use to send requests to the API
     required: false
     value: https://bc-wallet-demo-dev.apps.silver.devops.gov.bc.ca
+  - name: BASE_ROUTE
+    displayName: Base Route
+    description: The base route for the frontend
+    required: false
+    value: /digital-trust/showcase
 
 
   - name: CADDY_CONFIG_FILE_NAME

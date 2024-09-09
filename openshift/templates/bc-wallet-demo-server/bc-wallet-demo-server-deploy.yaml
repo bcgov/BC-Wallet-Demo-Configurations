@@ -64,7 +64,7 @@ objects:
         env: ${TAG_NAME}
     stringData:
       tenantId: ${TENANT_ID}
-      walletSecret: ${WALLET_SECRET}
+      apiKey: ${API_KEY}
       tractionUrl: ${TRACTION_URL}
       tractionDid: ${TRACTION_DID}
     type: Opaque
@@ -103,11 +103,11 @@ objects:
                     secretKeyRef:
                       name: ${NAME}${SUFFIX}
                       key: tenantId
-                - name: WALLET_SECRET
+                - name: API_KEY
                   valueFrom:
                     secretKeyRef:
                       name: ${NAME}${SUFFIX}
-                      key: walletSecret
+                      key: apiKey
                 - name: TRACTION_URL
                   valueFrom:
                     secretKeyRef:
@@ -118,6 +118,13 @@ objects:
                     secretKeyRef:
                       name: ${NAME}${SUFFIX}
                       key: tractionDid
+                - name: WEBHOOK_SECRET
+                  valueFrom:
+                    secretKeyRef:
+                      name: ${NAME}${SUFFIX}
+                      key: webhookSecret
+                - name: BASE_ROUTE
+                  value: ${BASE_ROUTE}
                 - name: STUDENT_VERSION
                   value: ${STUDENT_VERSION}
                 - name: LAWYER_VERSION
@@ -213,23 +220,28 @@ parameters:
     required: true
     value: dev
   - name: SERVER_PORT
-    displayName: Admin Port
-    description: The admin port on which the service will listen.
+    displayName: Server Port
+    description: The port on which the service will listen.
     required: true
     value: "5000"
-  - name: ENDPOINT_BASE
-    displayName: Site URL
-    description: The URL for the site
-    required: true
-    value: bc-wallet-demo-server-dev.apps.silver.devops.gov.bc.ca
+  - name: BASE_ROUTE
+    displayName: Base Route
+    description: The base route for the backend
+    required: false
+    value: /digital-trust/showcase
   - name: TENANT_ID
-    displayName: Site URL
-    description: The URL for the site
+    displayName: Tenant ID
+    description: The tenant ID for the traction agent
     required: true
     value: ""
-  - name: WALLET_SECRET
-    displayName: Site URL
-    description: The URL for the site
+  - name: API_KEY
+    displayName: API Key
+    description: The API key for the traction agent
+    required: true
+    value: ""
+  - name: WEBHOOK_SECRET
+    displayName: Webhook Secret
+    description: The secret for the webhook
     required: true
     value: ""
   - name: TRACTION_URL
@@ -238,8 +250,8 @@ parameters:
     required: true
     value: ""
   - name: TRACTION_DID
-    displayName: Site URL
-    description: The URL for the site
+    displayName: Traction DID
+    description: The DID for the traction service
     required: true
     value: ""
   - name: STUDENT_VERSION
